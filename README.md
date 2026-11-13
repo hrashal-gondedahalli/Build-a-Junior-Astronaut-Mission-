@@ -1,81 +1,68 @@
-# 🚀 Orbit Academy
-### Junior Astronaut Mission Trainer
+# 🚀 Orbit Academy — Junior Astronaut Mission Trainer
 
 **Explore. Build. Launch. Discover.**
 
-Orbit Academy is an interactive, browser-based space learning experience. It introduces young learners to astronaut preparation, rocket parts, launch sequences, planets, and basic space science through playful educational simulations.
+Orbit Academy is a browser-based space learning project with astronaut activities, a virtual rocket workshop, simulated missions, and an interactive Solar System explorer.
 
-<p align="center">
-  <strong>🌌 A space adventure built for curious minds.</strong>
-</p>
+## 🌌 Apps in this repository
 
-## ✨ Explore the mission modules
+### 1. Junior Astronaut Mission Trainer
+Open [index.html](./index.html) to use Mission Control, astronaut training, the rocket builder, launch animation, space voyage, planet explorer, quiz, and gravity playground.
 
-| Module | What you can do |
-| --- | --- |
-| 🧑‍🚀 Mission Control | View your astronaut profile, XP, levels, badges, and progress. |
-| 🧰 Rocket Engineering Bay | Choose rocket components and assemble a virtual rocket using drag-and-drop or tap controls. |
-| 🚀 Launch Sequence | Complete a virtual checklist and watch a simulated countdown and launch. |
-| 🪐 Space Voyage | Select a destination and explore an animated space scene. |
-| 🌍 Planet Explorer | Discover introductory facts about Solar System worlds. |
-| 🧠 Space Quiz | Test what you have learned with interactive questions. |
-| 🧲 Gravity Playground | Experiment with a simple visual gravity activity. |
+### 2. Interactive Space Explorer
+Open [space-explorer.html](./space-explorer.html) to:
+- Explore all eight planets through an interactive destination selector.
+- Read introductory planet facts and simple statistics.
+- Save discoveries in a browser-based explorer log.
+- Earn Explorer XP for each new planet discovered.
+- Complete a short space knowledge challenge.
+- Use the responsive interface on desktop, tablet, or mobile.
 
-### More features
+## ✨ Main project features
 
-- Responsive layout for desktop, tablet, and mobile screens.
-- Browser-based progress saving on the device you use.
-- No account, server, API key, or package installation required to run the static app.
-- A dark space-themed interface with bright mission-control accents.
+- Rocket Engineering Bay with selectable parts and drag-and-drop or tap-to-add assembly.
+- Simulated launch countdown and animated liftoff.
+- Space Voyage destination selection.
+- Planet Explorer and quick space quiz.
+- Gravity Playground.
+- Astronaut XP, levels, badges, and progress.
+- Local browser saving for learning progress.
 
 ## ▶️ Open the website
 
-**Live website (after GitHub Pages is enabled):**
+After GitHub Pages is enabled, use:
 
-[Orbit Academy — Junior Astronaut Mission Trainer](https://hrashal-gondedahalli.github.io/Build-a-Junior-Astronaut-Mission-/)
-
-If the link is not published yet, enable GitHub Pages using the steps below.
+- [Orbit Academy — Mission Control](https://hrashal-gondedahalli.github.io/Build-a-Junior-Astronaut-Mission-/)
+- [Interactive Space Explorer](https://hrashal-gondedahalli.github.io/Build-a-Junior-Astronaut-Mission-/space-explorer.html)
 
 ## 🛠️ Run locally
 
-This project is a static website. You only need a modern web browser.
+This is a static website. No Python, Node.js, server, API key, or package installation is required.
 
 1. Open the repository on GitHub.
-2. Select `index.html`.
-3. To run a local copy, download the repository and open `index.html` in Chrome, Safari, Firefox, or another modern browser.
+2. Select `index.html` or `space-explorer.html`.
+3. Download the repository if you want a local copy.
+4. Open either HTML file in a modern browser.
 
-There is no build command and no dependency installation.
-
-## 🌐 Publish with GitHub Pages
+## 🌐 Enable GitHub Pages
 
 1. Open [Repository Pages settings](https://github.com/hrashal-gondedahalli/Build-a-Junior-Astronaut-Mission-/settings/pages).
-2. Under **Build and deployment**, select **Deploy from a branch**.
-3. Choose **main** as the branch and **/(root)** as the folder.
-4. Click **Save**.
-5. Wait for GitHub to finish deploying, then open the live website link above.
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Select branch **main** and folder **/(root)**.
+4. Click **Save** and wait for GitHub to publish the site.
 
 ## 📁 Project structure
 
 ```text
 Build-a-Junior-Astronaut-Mission-/
-├── index.html       # Complete app (HTML, CSS, and JavaScript)
-├── README.md        # Project guide
-└── .nojekyll        # GitHub Pages publishing support
+├── index.html          # Main astronaut training app
+├── space-explorer.html # Interactive eight-planet explorer app
+├── README.md           # Project guide
+└── .nojekyll           # GitHub Pages support
 ```
 
-## 🎓 Learning goals
+## 🎓 Educational note
 
-By exploring the app, learners can become familiar with:
-- The purpose of common rocket components.
-- The idea of a pre-launch checklist.
-- Basic facts about planets and space exploration.
-- Simple cause-and-effect ideas in a visual gravity activity.
-- Learning through quizzes, experimentation, and mission progress.
+All rocket assembly, launches, voyages, and planetary scenes are fictional educational simulations. They do not control real hardware, calculate real spacecraft trajectories, or provide real-world spacecraft operating instructions. Planet visuals and distances are simplified and not to scale.
 
-## ⚠️ Educational simulation
-
-Orbit Academy is a fictional learning simulator. Rocket assembly, countdowns, launches, destinations, and flight scenes are animations for education and entertainment. The app does not control real hardware, calculate real spacecraft trajectories, or provide real-world flight training.
-
-## 💙 Project
-
-Created as a student learning project to make space science more interactive, creative, and fun.
+Created as a student learning project to make space science interactive and enjoyable.
