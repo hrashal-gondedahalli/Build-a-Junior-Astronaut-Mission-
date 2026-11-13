@@ -47,9 +47,9 @@
 <section id="quiz" class="screen"><button class="back" onclick="home()">← Mission Control</button><div class="eyebrow">MISSION 03 / KNOWLEDGE LAB</div><h1>🧠 Astronaut Knowledge Quiz</h1><p class="muted">Choose the best answer. Learn something new with every question!</p><div class="panel" style="max-width:760px"><div class="chip" id="qCount">QUESTION 1 / 5</div><h2 id="question"></h2><div class="options" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div><button id="next" class="primary" disabled onclick="nextQ()">Next question →</button></div></section>
 <section id="gravity" class="screen"><button class="back" onclick="home()">← Mission Control</button><div class="eyebrow">BONUS LAB / GRAVITY</div><h1>🌙 Gravity Playground</h1><p class="muted">Explore how gravity changes on different worlds.</p><div class="twocol"><div class="panel"><label for="world">Choose a world</label><select id="world"><option value="1.62">Moon</option><option value="3.71">Mars</option><option value="9.81" selected>Earth</option><option value="24.79">Jupiter</option></select><p>Rover mass: <b id="massText">30 kg</b></p><input id="mass" type="range" min="5" max="100" value="30" style="width:100%;accent-color:var(--cyan)"><p class="muted">Simulated weight</p><div class="result" id="weight">294.3 N</div><div class="fact" id="gravityFact">On Earth, the rover's weight is mass × gravity. Its mass stays the same wherever it travels.</div></div><div class="display">⚖️</div></div></section>
 
-<section id="builder" class="screen"><button class="back" onclick="home()">← Mission Control</button><div class="eyebrow">ENGINEERING BAY / MISSION 00</div><h1>🧩 Rocket Builder</h1><p class="muted">Customize a realistic-looking launch vehicle in this educational visual simulator. Drag or tap parts to change its appearance.</p>
+<section id="builder" class="screen"><button class="back" onclick="home()">← Mission Control</button><div class="eyebrow">ENGINEERING BAY / MISSION 00</div><h1>🧩 Rocket Builder</h1><p class="muted">Customize a realistic-looking launch vehicle in this educational visual simulator. Drag parts into their matching slots, or tap a part to fit it automatically. Choose all six components to unlock your launch test.</p>
 <div class="builder"><div class="parts-bay"><div class="eyebrow">PARTS</div><div id="partsBay" class="parts"></div><button onclick="resetRocket()" style="margin-top:8px;width:100%;padding:7px;font-size:10px">Reset</button></div>
-<div class="assembly"><div class="assembly-head"><span>Experiment with builds</span><button id="builderLaunch" class="primary" disabled onclick="beginLaunch()">Launch 🚀</button></div><div class="rocketstage"><svg id="rocketSvg" class="rocket-svg" viewBox="0 0 180 440" role="img" aria-label="Tall assembled white spacecraft"></svg></div><div id="rocketSlots" class="slotrow"></div><p id="buildStatus" class="buildertip">Select visual components to customize your launch vehicle.</p></div><div class="builder-side"><div class="builder-check" id="check-Nose">✓</div><div class="builder-check" id="check-Capsule">✓</div><div class="builder-check" id="check-Body">✓</div><div class="builder-check" id="check-Engine">✓</div><div class="builder-check" id="check-Panels">✓</div><div class="buildertip">BUILD CHECK</div></div></div></section>
+<div class="assembly"><div class="assembly-head"><span>Experiment with builds</span><button id="builderLaunch" class="primary" disabled onclick="beginLaunch()">Launch 🚀</button></div><div class="rocketstage"><svg id="rocketSvg" class="rocket-svg" viewBox="0 0 180 440" role="img" aria-label="Tall assembled white spacecraft"></svg></div><div id="rocketSlots" class="slotrow"></div><p id="buildStatus" class="buildertip">Select visual components to customize your launch vehicle.</p></div><div class="builder-side"><div class="builder-check" id="check-Nose">✓</div><div class="builder-check" id="check-Capsule">✓</div><div class="builder-check" id="check-Body">✓</div><div class="builder-check" id="check-Engine">✓</div><div class="builder-check" id="check-Panels">✓</div><div class="builder-check" id="check-Booster">✓</div><div class="buildertip">BUILD CHECK</div></div></div></section>
 <section id="voyage" class="screen"><button class="back" onclick="home()">← Mission Control</button><div class="eyebrow">MISSION 04 / DEEP SPACE</div><h1>🌠 Space Voyage Simulator</h1><p class="muted">Choose a destination for a fictional educational space journey.</p><div class="panel"><h3>Choose your destination</h3><div id="destinations" class="missiongrid"></div><p><button class="primary" onclick="startVoyage()">Begin simulated voyage ✦</button></p></div><div class="flight-game panel" style="margin-top:14px">
  <div class="flight-hud"><span>ALTITUDE <b id="flightAltitude">0 km</b></span><span>SPEED <b id="flightSpeed">0 m/s</b></span><span>FUEL <b id="flightFuel">100%</b></span><span>DISTANCE <b id="flightDistance">—</b></span></div>
  <canvas id="flightCanvas" width="900" height="390" aria-label="Interactive simulated spacecraft navigation game"></canvas>
@@ -99,9 +99,11 @@ const rocketParts=[
  {slot:'Engine',name:'Single engine',emoji:'🔥',color:'#ffad55',kind:'engine'},
  {slot:'Engine',name:'Twin engines',emoji:'🔥🔥',color:'#ff805f',kind:'engine'},
  {slot:'Panels',name:'Solar wings',emoji:'☀️',color:'#62d8e9',kind:'panels'},
- {slot:'Panels',name:'Compact panels',emoji:'🔷',color:'#8ba8ff',kind:'panels'}
+ {slot:'Panels',name:'Compact panels',emoji:'🔷',color:'#8ba8ff',kind:'panels'},
+ {slot:'Booster',name:'Twin solid boosters',emoji:'🧯',color:'#d9dfe4',kind:'booster'},
+ {slot:'Booster',name:'Heavy-lift boosters',emoji:'🚀',color:'#d0a36a',kind:'booster'}
 ];
-const slotNames=['Nose','Capsule','Body','Engine','Panels'];
+const slotNames=['Nose','Capsule','Body','Engine','Panels','Booster'];
 const destinations=[{name:'Moon',emoji:'🌕',color:'#b9bac8',fact:'The Moon is Earth’s natural satellite. This voyage is a simplified simulation.'},{name:'Mars',emoji:'🔴',color:'#d46d55',fact:'Mars is a rocky planet with a thin atmosphere and two small moons.'},{name:'Jupiter',emoji:'🟠',color:'#d79b68',fact:'Jupiter is the largest planet in our Solar System.'},{name:'Saturn',emoji:'🪐',color:'#d8bd80',fact:'Saturn is famous for its bright rings made mostly of ice and rocky particles.'}];
 let selectedDestination=0,launchTimer=null;
 function renderBuilder(){
@@ -119,7 +121,7 @@ function dropPart(e,slot){e.preventDefault();const i=Number(e.dataTransfer.getDa
 function resetRocket(){data.rocket={};data.builderDone=false;save();renderBuilder()}
 function drawRocket(){
  const p=data.rocket;
- const body=p.Body?.color||'#f1f2ef',cap=p.Capsule?.color||'#e8eeee',nose=p.Nose?.color||'#f5f5f2',eng=p.Engine?.color||'#aeb8bd',panel=p.Panels?.color||'#477fae';
+ const body=p.Body?.color||'#f1f2ef',cap=p.Capsule?.color||'#e8eeee',nose=p.Nose?.color||'#f5f5f2',eng=p.Engine?.color||'#aeb8bd',panel=p.Panels?.color||'#477fae',booster=p.Booster?.color||'#89959b';
  const panels=p.Panels?'<g stroke="#b8d6e9" stroke-width="1.3"><path d="M57 202 H5 V279 H57 M123 202 H175 V279 H123" fill="#173d68"/><path d="M5 220 H57 M5 240 H57 M5 260 H57 M123 220 H175 M123 240 H175 M123 260 H175" fill="none" stroke="#80b5dc"/><path d="M15 204 V277 M30 204 V277 M45 204 V277 M135 204 V277 M150 204 V277 M165 204 V277" fill="none" stroke="#80b5dc"/></g>':'';
  $('rocketSvg').setAttribute('viewBox','0 0 180 460');
  $('rocketSvg').innerHTML=`
@@ -133,8 +135,8 @@ function drawRocket(){
  </defs>
  <g stroke="#59636a" stroke-width="1.1" stroke-linejoin="round">
   <!-- side boosters: decorative visual elements -->
-  <path d="M43 126 Q33 142 33 165 L33 343 Q33 365 42 382 L55 371 L57 153Z" fill="url(#skin)"/>
-  <path d="M137 126 Q147 142 147 165 L147 343 Q147 365 138 382 L125 371 L123 153Z" fill="url(#skin)"/>
+  <path d="M43 126 Q33 142 33 165 L33 343 Q33 365 42 382 L55 371 L57 153Z" fill="${p.Booster?booster:'url(#skin)'}"/>
+  <path d="M137 126 Q147 142 147 165 L147 343 Q147 365 138 382 L125 371 L123 153Z" fill="${p.Booster?booster:'url(#skin)'}"/>
   <path d="M36 169 H53 V181 H36 M127 169 H144 V181 H127" fill="url(#darkMetal)"/>
   <path d="M35 335 H55 V348 H35 M125 335 H145 V348 H125" fill="url(#darkMetal)"/>
   <path d="M39 382 L31 411 L48 399 L55 379 M141 382 L149 411 L132 399 L125 379" fill="#59646a"/>
