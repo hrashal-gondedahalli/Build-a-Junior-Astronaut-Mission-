@@ -178,8 +178,8 @@ function beginLaunch(){
 function renderDestinations(){
  $('destinations').innerHTML=destinations.map((d,i)=>'<button class="destination '+(i===selectedDestination?'selected':'')+'" onclick="selectDestination('+i+')"><span>'+d.emoji+'</span><strong>'+d.name+'</strong><small class="muted">Select destination</small></button>').join('');
 }
-function selectDestination(i){selectedDestination=i;renderDestinations();$('voyageTitle').textContent='Destination: '+destinations[i].name;$('voyageText').textContent=destinations[i].fact;$('orbitWorld').style.background='radial-gradient(circle at 30% 25%,#fff1c1,'+destinations[i].color+' 48%,#302b57 88%)'}
-function startVoyage(){const d=destinations[selectedDestination];$('voyageTitle').textContent='Voyage to '+d.name+' underway!';$('voyageText').textContent=d.fact+' Watch the spacecraft move around the destination in this educational animation.';$('voyageStatus').textContent='STATUS: SIMULATED ORBIT ACHIEVED';mission('voyage');if(!data.voyageDone){data.voyageDone=true;data.xp+=20;save();notify('Space Explorer XP earned!')}else render()}
+function selectDestination(i){selectedDestination=i;renderDestinations();$('voyageTitle').textContent='Destination: '+destinations[i].name;$('voyageText').textContent=destinations[i].fact;if($('flightObjective'))$('flightObjective').textContent='REACH THE '+destinations[i].name.toUpperCase()+' WAYPOINT';drawFlight()}
+function startVoyage(){selectDestination(selectedDestination);resetFlight();drawFlight();}
 
 
 /* Playable spacecraft navigation: simple educational 2D flight model */
